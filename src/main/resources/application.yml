@@ -1,2 +1,21 @@
 server:
+  error:
+    include-message: always
   port: 9998
+  servlet:
+    context-path: /data
+
+
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:~/test
+#    localhost:9998/data/h2
+#    JDBC URL: jdbc:h2:mem:~/test
+#    username: sa
+#    password:
+
+#ssd server.error.include-message=always
