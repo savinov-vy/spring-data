@@ -1,4 +1,4 @@
-Spackage ru.savinov.springdata.repository;
+package ru.savinov.springdata.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
