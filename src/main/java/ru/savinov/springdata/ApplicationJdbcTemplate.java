@@ -8,11 +8,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import ru.savinov.springdata.entity.Account;
 
 import java.util.Map;
+/***
+ * Классы ApplicationJdbcTemplate и ApplicationJpaRepo
+ * сделаны для примера поэтому неиспользуемый необходимо закоменнтировать
+ */
 
-@SpringBootApplication
-public class Application implements CommandLineRunner {
+//@SpringBootApplication
+public class ApplicationJdbcTemplate implements CommandLineRunner {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApplicationJdbcTemplate.class, args);
     }
 
     @Autowired
@@ -32,7 +36,7 @@ public class Application implements CommandLineRunner {
     }
     private Account findAccountById(Long accountId) {
         String query = "SELECT * FROM Account WHERE id = %s";
-        Map<String, Object> resultSet = jdbcTemplate.queryForMap(String.format(query, accountId));
+        Map<String, Object> resultSet = jdbcTemplate.queryForMap(String.format(query, accountId));// вместо %s будут использоватся параметры с лева на право
         Account account = new Account();
         account.setId(accountId);
         account.setName((String) resultSet.get("name"));
